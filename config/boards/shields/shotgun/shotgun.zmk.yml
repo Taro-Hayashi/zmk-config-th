@@ -1,0 +1,8 @@
+file_format: "1"
+id: shotgun
+name: Shotgun
+type: shield
+url: https://github.com/Taro-Hayashi/Shotgun-v2
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
