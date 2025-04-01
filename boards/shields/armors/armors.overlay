@@ -1,4 +1,9 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
+#include <physical_layouts.dtsi>
+#include <dt-bindings/led/led.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 / {
     chosen {

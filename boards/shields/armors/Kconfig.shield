@@ -1,5 +1,2 @@
-# Copyright (c) 2022 The ZMK Contributors
-# SPDX-License-Identifier: MIT
-
-config SHIELD_ARMORS
+config ARMORS
    def_bool $(shields_list_contains,armors)
