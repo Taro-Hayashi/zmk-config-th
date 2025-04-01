@@ -1,0 +1,8 @@
+file_format: "1"
+id: armors
+name: Armors
+type: shield
+url: https://github.com/Taro-Hayashi/Armors-v2
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
