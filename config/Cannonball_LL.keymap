@@ -4,12 +4,25 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/input_transform.h>
 
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 100
 #define DEFAULT_WIN 0
 #define DEFAULT_MAC 1
 #define SCROLL 2
 
 / {
     /* Behaviors */
+// 新しいスクロール動作の追加
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            // 追加: スクロールのタップ時間を設定 (20ms)
+            tap-ms = <20>;
+        };
+
+// 設定したいレイヤー
+sensor-bindings = <&scroll_up_down>;
+
     // スクロール設定
     msc {
         acceleration-exponent = <0>;      // 0
