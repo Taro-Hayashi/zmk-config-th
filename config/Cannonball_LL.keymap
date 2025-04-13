@@ -13,8 +13,8 @@
     // スクロール設定
     msc {
         acceleration-exponent = <0>;      // 0
-        time-to-max-speed-ms = <200>;     // 300
-        delay-ms = <10>;                   // 10
+        time-to-max-speed-ms = <0>;     // 300
+        delay-ms = <0>;                   // 10
     };
     // エンコーダー：キー
     behaviors {
@@ -29,7 +29,7 @@
         rot_msc: sensor_rotate_msc {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            tap-ms = <0>;
+            tap-ms = <1>;
             bindings = <&msc>, <&msc>;
         };
     };
