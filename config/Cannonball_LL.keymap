@@ -57,7 +57,7 @@
                 // Back
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
-            sensor-bindings = <&rot_kp LS(LC(TAB)) LC(TAB)>, <&rot_kp DOWN UP>, <&rot_kp RIGHT LEFT>;
+            sensor-bindings = <&rot_kp LS(LC(TAB)) LC(TAB)>, <&rot_kp UP DOWN>, <&rot_kp RIGHT LEFT>;
     	};
 
         // MacOS用
