@@ -53,7 +53,7 @@
                 &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
                 &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
                 // Side
-                &kp F1 &kp F2 &mo 3 &kp F4
+                &kp F1 &kp F2 &mo DEFAULT_MAC &kp F4
                 // Back
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
@@ -64,9 +64,9 @@
     	DEFAULT_MAC {
             bindings = <
                 // Key
-                &mkp MB2   &kp LGUI   &kp LSHFT    &kp BSPC
+                &mkp A   &kp B   &kp C    &kp BSPC
                 &mkp MB3   &mo SCROLL &kp LG(N0)   &kp DEL
-                &mkp MB1   &kp TAB    &kp LS(TAB)  &kp RET
+                &mkp D   &kp E    &kp F  &kp RET
                 // Mouse
                 &kp LG(C) &kp LG(V)
                 // Stick
@@ -105,25 +105,3 @@
     	};
     };
 };
-
-
-    	WORK {
-            bindings = <
-                // Key
-                &kp LA(RIGHT)   &kp ENTER   &kp DEL    &kp BSPC
-                &mkp MB3   &kp LC(V) &kp LC(W)   &kp DEL
-                &kp LA(LEFT)   &kp LC(X)    &kp F5  &kp RET
-                // Mouse
-                &mkp MB1 &mkp MB2
-                // Stick
-                &mkp MB3 &mo SCROLL &mo SCROLL &mo SCROLL
-                // Lever
-                &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
-                &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
-                // Side
-                &kp F1 &kp F2 &mo 3 &kp F4
-                // Back
-                &bt BT_SEL 0 &bt BT_SEL 1
-    	    >;
-            sensor-bindings = <&rot_kp LS(LC(TAB)) LC(TAB)>, <&rot_msc MOVE_DOWN MOVE_UP>, <&rot_kp RIGHT LEFT>;
-    	};
