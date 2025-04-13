@@ -42,9 +42,9 @@
     	DEFAULT_WIN {
             bindings = <
                 // Key
-                &kp LC(V)   &kp LCTRL   &kp LSHFT    &kp BSPC
-                &mkp MB3   &mo SCROLL &kp LC(N0)   &kp DEL
-                &kp LC(C)   &kp TAB    &kp F5  &kp RET
+                &kp LC(V)   &kp ENTER   &kp DEL    &kp BSPC
+                &mkp MB3   &mo SCROLL &mkp MB3   &kp DEL
+                &kp LC(X)   &kp LC(W)    &kp F5  &kp RET
                 // Mouse
                 &mkp MB1 &mkp MB2
                 // Stick
