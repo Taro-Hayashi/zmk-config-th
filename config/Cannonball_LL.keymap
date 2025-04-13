@@ -46,7 +46,7 @@
                 &mkp MB3   &mo SCROLL &kp LC(N0)   &kp DEL
                 &mkp MB1   &kp TAB    &kp LS(TAB)  &kp RET
                 // Mouse
-                &kp LC(C) &kp LC(V)
+                &mkp MB1 &mkp MB2
                 // Stick
                 &kp LS(LC(T)) &kp LS(LC(TAB)) &kp LC(W) &kp LC(TAB)
                 // Lever
