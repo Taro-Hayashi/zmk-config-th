@@ -29,7 +29,7 @@
         rot_msc: sensor_rotate_msc {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            tap-ms = <20>;
+            tap-ms = <10>;
             bindings = <&msc>, <&msc>;
         };
     };
@@ -42,13 +42,13 @@
     	DEFAULT_WIN {
             bindings = <
                 // Key
-                &mkp MB2   &kp LCTRL   &kp LSHFT    &kp BSPC
-                &mkp MB3   &mo SCROLL &kp LC(N0)   &kp DEL
-                &mkp MB1   &kp TAB    &kp LS(TAB)  &kp RET
+                &mkp LC(v)   &kp DEL   &kp LC(W)    &kp BSPC
+                &mkp MB3   &mo SCROLL &mkp MB3   &kp DEL
+                &mkp LC(x)   &kp ENTER    &kp F5  &kp RET
                 // Mouse
                 &mkp MB1 &mkp MB2
                 // Stick
-                &kp LS(LC(T)) &kp LS(LC(TAB)) &kp LC(W) &kp LC(TAB)
+                &mkp MB3 &mo SCROLL &mo SCROLL &mo SCROLL
                 // Lever
                 &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
                 &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
@@ -57,7 +57,7 @@
                 // Back
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
-            sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&rot_msc MOVE_DOWN MOVE_UP>, <&rot_kp LG(PLUS) LG(MINUS)>;
+            sensor-bindings = <&rot_kp LC(tab) LC(LS(tab))>, <&rot_msc MOVE_DOWN MOVE_UP>, <&rot_kp LG(PLUS) LG(MINUS)>;
     	};
 
         // MacOS用
