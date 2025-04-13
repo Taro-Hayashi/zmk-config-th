@@ -7,6 +7,7 @@
 #define DEFAULT_WIN 0
 #define DEFAULT_MAC 1
 #define SCROLL 2
+#define WORK 3
 
 / {
     /* Behaviors */
@@ -53,7 +54,7 @@
                 &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
                 &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
                 // Side
-                &kp F1 &kp F2 &kp F3 &kp F4
+                &kp F1 &kp F2 &mo WORK &kp F4
                 // Back
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
@@ -105,3 +106,25 @@
     	};
     };
 };
+
+
+    	WORK {
+            bindings = <
+                // Key
+                &kp A   &kp B   &C    &kp BSPC
+                &mkp MB3   &kp d &kp LC(W)   &kp DEL
+                &kp e   &kp f    &kp g  &kp RET
+                // Mouse
+                &mkp MB1 &mkp MB2
+                // Stick
+                &mkp MB3 &mo SCROLL &mo SCROLL &mo SCROLL
+                // Lever
+                &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
+                &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
+                // Side
+                &kp F1 &kp F2 &kp F3 &kp F4
+                // Back
+                &bt BT_SEL 0 &bt BT_SEL 1
+    	    >;
+            sensor-bindings = <&rot_kp LS(LC(TAB)) LC(TAB)>, <&rot_msc MOVE_DOWN MOVE_UP>, <&rot_kp RIGHT LEFT>;
+    	};
