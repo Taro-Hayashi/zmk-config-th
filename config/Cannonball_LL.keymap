@@ -7,7 +7,6 @@
 #define DEFAULT_WIN 0
 #define DEFAULT_MAC 1
 #define SCROLL 2
-#define WORK 3
 
 / {
     /* Behaviors */
