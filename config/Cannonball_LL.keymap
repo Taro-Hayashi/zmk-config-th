@@ -48,7 +48,7 @@
                 // Mouse
                 &mkp MB1 &mkp MB2
                 // Stick
-                &kp LS(LC(T)) &kp LS(LC(TAB)) &kp LC(W) &kp LC(TAB)
+                &mo SCROLL &mo SCROLL &mo SCROLL &mo SCROLL
                 // Lever
                 &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
                 &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
