@@ -111,9 +111,9 @@
     	WORK {
             bindings = <
                 // Key
-                &kp A   &kp B   &C    &kp BSPC
-                &mkp MB3   &kp d &kp LC(W)   &kp DEL
-                &kp e   &kp f    &kp g  &kp RET
+                &kp LA(RIGHT)   &kp ENTER   &kp DEL    &kp BSPC
+                &mkp MB3   &kp LC(V) &kp LC(W)   &kp DEL
+                &kp LA(LEFT)   &kp LC(X)    &kp F5  &kp RET
                 // Mouse
                 &mkp MB1 &mkp MB2
                 // Stick
@@ -122,7 +122,7 @@
                 &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
                 &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
                 // Side
-                &kp F1 &kp F2 &kp F3 &kp F4
+                &kp F1 &kp F2 &mo 3 &kp F4
                 // Back
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
