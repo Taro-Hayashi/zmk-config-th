@@ -13,8 +13,8 @@
     // スクロール設定
     msc {
         acceleration-exponent = <0>;      // 0
-        time-to-max-speed-ms = <200>;     // 300
-        delay-ms = <5>;                   // 10
+        time-to-max-speed-ms = <100>;     // 300
+        delay-ms = <1>;                   // 10
     };
     // エンコーダー：キー
     behaviors {
