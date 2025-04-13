@@ -14,7 +14,7 @@
 // 新しいスクロール動作の追加
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
+            #sensor-binding-cells = <2>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
             // 追加: スクロールのタップ時間を設定 (20ms)
             tap-ms = <20>;
