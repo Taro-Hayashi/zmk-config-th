@@ -30,6 +30,7 @@
 	    , <&key_physical_attrs 100 100 200 550   0  0  0>
 	    , <&key_physical_attrs 100 100 200 650   0  0  0>
 	    , <&key_physical_attrs 100 100 200 750   0  0  0>
+<<<<<<< HEAD
         // Mouse
 	    , <&key_physical_attrs 100 100 175 325   0  0  0>
 	    , <&key_physical_attrs 100 100 425 325   0  0  0>
@@ -242,3 +243,6 @@
     };
   };
 };
+=======
+        // Mouse
+>>>>>>> parent of 6f79435 (Revert "Update Cannonball_LL.overlay")
