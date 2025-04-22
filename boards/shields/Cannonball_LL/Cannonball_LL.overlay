@@ -62,36 +62,36 @@
     rows = <2>;
     columns = <16>;
     map = 
-        // Lever
-        RC(1,9) RC(1,7) // up
-        RC(1,11) RC(1,8) // push
-        RC(1,10)  RC(1,6) // down
-        // Stick
-        RC(1,0) // up
-        RC(1,2) // left
-        RC(1,1) // right
-        RC(1,3) // down
-        // Cover button L R
-        RC(0,11) RC(0,10)
-        // Key 1row:Mouse Button
-        RC(0,6)  RC(1,4) RC(0,0)
-        // Side upper row
-        RC(0,14) RC(0,12)
-        // Key 2row
-        RC(0,7) RC(0,4) RC(0,1)
-        // Back Button Upper
-        RC(1,13)
-        // Key 3row
-        RC(0,8) RC(1,5) RC(0,2)
-        // Back Button Down
-        RC(1,12)
-        // Side bottom row left
-        RC(1,14) 
-        // Key 4row
-        RC(0,9) RC(0,5) RC(0,3)
-        // Side bottom row right
-        RC(0,13) 
-    >;
+    // Lever
+    RC(1,9), RC(1,7), // up
+    RC(1,11), RC(1,8), // push
+    RC(1,10), RC(1,6), // down
+    // Stick
+    RC(1,0), // up
+    RC(1,2), // left
+    RC(1,1), // right
+    RC(1,3), // down
+    // Cover button L R
+    RC(0,11), RC(0,10),
+    // Key 1row:Mouse Button
+    RC(0,6), RC(1,4), RC(0,0),
+    // Side upper row
+    RC(0,14), RC(0,12),
+    // Key 2row
+    RC(0,7), RC(0,4), RC(0,1),
+    // Back Button Upper
+    RC(1,13),
+    // Key 3row
+    RC(0,8), RC(1,5), RC(0,2),
+    // Back Button Down
+    RC(1,12),
+    // Side bottom row left
+    RC(1,14),
+    // Key 4row
+    RC(0,9), RC(0,5), RC(0,3),
+    // Side bottom row right
+    RC(0,13)
+>;
 };
 
     // ピン設定
