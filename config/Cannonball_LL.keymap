@@ -51,73 +51,98 @@
         };
     };
 
-    /* キーマップ */
+    combos {
+        compatible = "zmk,combos";
+
+        cmb_esc_v {
+            bindings = <&kp ESCAPE>;
+            key-positions = <17 18>;
+        };
+
+        cmb_bksp {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <18 19>;
+        };
+
+        cmb_esc_h {
+            bindings = <&kp ESCAPE>;
+            key-positions = <21 26>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         // WINDOWS用
-    	DEFAULT_WIN {
+
+        MODE_VERTICAL {
             bindings = <
-                // Key
-                &mkp MB2   &kp LCTRL   &kp LSHFT    &kp BSPC
-                &mkp MB3   &mo SCROLL &kp LC(N0)   &kp DEL
-                &mkp MB1   &kp TAB    &kp LS(TAB)  &kp RET
-                // Mouse
-                &kp LC(C) &kp LC(V)
-                // Stick
-                &kp LS(LC(T)) &kp LS(LC(TAB)) &kp LC(W) &kp LC(TAB)
-                // Lever
-                &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
-                &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
-                // Side
-                &kp F1 &kp F2 &kp F3 &kp F4
-                // Back
-                &bt BT_SEL 0 &bt BT_SEL 1
-    	    >;
+&kp LS(LC(TAB))    &kp LC(N)
+&tog 1             &kp LC(T)
+&kp LC(TAB)        &kp LC(S)
+&kp LC(LG(RIGHT))
+&kp LC(LG(LEFT))
+&kp PAGE_UP
+&kp PAGE_DOWN
+&kp LC(C)          &kp LC(V)
+&mkp MB1           &kp ESCAPE         &mkp MB2
+&mkp MB5           &kp LG(LS(RIGHT))
+&kp LCTRL          &mkp MB3           &kp TAB
+&bt BT_SEL 0
+&kp LSHIFT         &mo 2              &lt 2 LS(Z)  &bt BT_SEL 1
+&mkp MB4
+&kp ENTER          &kp BACKSPACE      &kp DELETE   &kp LC(W)
+            >;
+
             sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&scroll_move_y>, <&rot_kp LG(PLUS) LG(MINUS)>;
     	};
 
         // MacOS用
-    	DEFAULT_MAC {
+
+        MODE_HORIZON {
             bindings = <
-                // Key
-                &mkp MB2   &kp LGUI   &kp LSHFT    &kp BSPC
-                &mkp MB3   &mo SCROLL &kp LG(N0)   &kp DEL
-                &mkp MB1   &kp TAB    &kp LS(TAB)  &kp RET
-                // Mouse
-                &kp LG(C) &kp LG(V)
-                // Stick
-                &kp LS(LG(T)) &kp LS(LC(TAB)) &kp LG(W) &kp LC(TAB)
-                // Lever
-                &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
-                &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
-                // Side
-                &kp F1 &kp F2 &kp F3 &kp F4
-                // Back
-                &bt BT_SEL 0 &bt BT_SEL 1
-    	    >;
+&kp PAGE_DOWN  &kp LS(LA(TAB))
+&trans         &kp LS(LG(RIGHT))
+&kp PAGE_UP    &kp LA(TAB)
+&kp DOWN
+&kp UP_ARROW
+&kp RIGHT
+&kp LEFT
+&kp DELETE     &kp BACKSPACE
+&kp V          &kp W              &kp TAB
+&kp F11        &kp ENTER
+&kp X          &kp LEFT_ALT       &kp T
+&trans
+&kp C          &kp N              &kp S     &trans
+&kp LS(LG(S))
+&kp LCTRL      &kp LSHIFT         &kp LGUI  &kp SPACE
+            >;
+
             sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&scroll_move_y>, <&rot_kp LG(PLUS) LG(MINUS)>;
     	};
 
+
         // BT設定、スクロールレイヤー
+
         SETTINGS {
             bindings = <
-                // Key
-                &none &none &none &none
-                &none &mo SCROLL &none &none
-                &none &none &none &none
-                // Mouse
-                &none &none
-                // Stick
-                &none &none &none &none
-                // Lever
-                &none &none &none
-                &none &none &none
-                // Side
-                &none &none &none &none
-                // Back
-                &bt BT_CLR_ALL &bt BT_CLR
-    	    >;
+&none       &none
+&none       &none
+&none       &none
+&none
+&none
+&none
+&none
+&none &none
+&none       &none  &none
+&none       &none
+&none       &none  &none
+&none
+&none       &none  &none           &none
+&none
+&bt BT_CLR  &none  &bt BT_CLR_ALL  &none
+            >;
+
             sensor-bindings = <&rot_kp LEFT RIGHT>, <&scroll_move_y>, <&scroll_move_x>;
     	};
     };
