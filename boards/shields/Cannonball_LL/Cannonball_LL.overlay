@@ -80,7 +80,7 @@
         // Back buttons
         RC(1,13) RC(1,12)
     >;
-    };
+};
 
     // ピン設定
     kscan0: kscan0 {
