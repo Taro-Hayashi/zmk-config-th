@@ -62,39 +62,37 @@
         rows = <2>;
         columns = <16>;
         map = 
-            // Lever (3 keys)
-            RC(1,9) RC(1,7) RC(1,6)
-            // Stick (4 keys)
-            RC(1,0) RC(1,2) RC(1,1) RC(1,3)
-            // Cover button L R (2 keys)
-            RC(0,11) RC(0,10)
-            // Key 1row:Mouse Button (3 keys)
-            RC(0,6) RC(1,4) RC(0,0)
-            // Side upper row (2 keys)
-            RC(0,14) RC(0,12)
-            // Key 2row (3 keys)
-            RC(0,7) RC(0,4) RC(0,1)
-            // Back Button Upper (1 key)
-            RC(1,13)
-            // Key 3row (3 keys)
-            RC(0,8) RC(1,5) RC(0,2)
-            // Back Button Down (1 key)
-            RC(1,12)
-            // Side bottom row left (1 key)
-            RC(1,14)
-            // Key 4row (3 keys)
-            RC(0,9) RC(0,5) RC(0,3)
-            // Side bottom row right (1 key)
+            // Lever
+            RC(1,9), RC(1,7), // up
+            RC(1,11), RC(1,8), // push
+            RC(1,10), RC(1,6), // down
+            // Stick
+            RC(1,0), // up
+            RC(1,2), // left
+            RC(1,1), // right
+            RC(1,3), // down
+            // Cover button L R
+            RC(0,11), RC(0,10),
+            // Key 1row:Mouse Button
+            RC(0,6), RC(1,4), RC(0,0),
+            // Side upper row
+            RC(0,14), RC(0,12),
+            // Key 2row
+            RC(0,7), RC(0,4), RC(0,1),
+            // Back Button Upper
+            RC(1,13),
+            // Key 3row
+            RC(0,8), RC(1,5), RC(0,2),
+            // Back Button Down
+            RC(1,12),
+            // Side bottom row left
+            RC(1,14), 
+            // Key 4row
+            RC(0,9), RC(0,5), RC(0,3),
+            // Side bottom row right
             RC(0,13)
-            // Padding with placeholder keys to fill 16 columns
-            RC(1,15) RC(1,15) RC(1,15) RC(1,15)
         >;
     };
-
-    // Rest of the file remains the same as in the original overlay
-    // (kscan0, encoders, sensors, SPI configuration, etc.)
-};
-};
 
     // ピン設定
     kscan0: kscan0 {
@@ -242,7 +240,7 @@
     disable {
         // mouse disabled-esque for layer1
         layers = <1>;
-        input-processors = <
+        input-processors = 
           &zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)
           &zip_x_scaler 0 8192
           &zip_y_scaler 1 8192
@@ -252,7 +250,7 @@
 
     scroller {
         layers = <2>;
-        input-processors = <
+        input-processors = 
           &zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)
           &zip_x_scaler 0 16
           &zip_y_scaler 1 16
