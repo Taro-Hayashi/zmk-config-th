@@ -3,7 +3,6 @@
     "default_layout": {
       "name": "default_layout",
       "layout": [
-        // Key section (12 keys in 3x4 grid)
         { "row": 0, "col": 0, "x": 4, "y": 4.5 },
         { "row": 0, "col": 1, "x": 4, "y": 5.5 },
         { "row": 0, "col": 2, "x": 4, "y": 6.5 },
@@ -19,17 +18,14 @@
         { "row": 0, "col": 8, "x": 2, "y": 6.5 },
         { "row": 0, "col": 9, "x": 2, "y": 7.5 },
         
-        // Mouse buttons (2 buttons)
         { "row": 0, "col": 11, "x": 1.75, "y": 3.25 },
         { "row": 0, "col": 10, "x": 4.25, "y": 3.25 },
         
-        // Stick (4 directions)
         { "row": 1, "col": 1, "x": 3, "y": 1 },
         { "row": 1, "col": 2, "x": 2, "y": 2 },
         { "row": 1, "col": 3, "x": 3, "y": 3 },
         { "row": 1, "col": 0, "x": 4, "y": 2 },
         
-        // Lever (6 buttons: 3 top, 3 bottom)
         { "row": 1, "col": 10, "x": 0.25, "y": 1.5 },
         { "row": 1, "col": 11, "x": 0.75, "y": 0.5 },
         { "row": 1, "col": 9, "x": 1.75, "y": 0 },
@@ -38,13 +34,11 @@
         { "row": 1, "col": 8, "x": 5.25, "y": 0.5 },
         { "row": 1, "col": 6, "x": 5.75, "y": 1.5 },
         
-        // Side buttons (4 buttons: 2 left, 2 right)
         { "row": 0, "col": 14, "x": 0.75, "y": 5 },
         { "row": 1, "col": 14, "x": 0.75, "y": 7 },
         { "row": 0, "col": 12, "x": 5.25, "y": 5 },
         { "row": 0, "col": 13, "x": 5.25, "y": 7 },
         
-        // Back buttons (2 buttons)
         { "row": 1, "col": 13, "x": 6.75, "y": 5.5 },
         { "row": 1, "col": 12, "x": 6.75, "y": 6.5 }
       ]
