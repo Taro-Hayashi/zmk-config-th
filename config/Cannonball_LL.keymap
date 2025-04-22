@@ -1,8 +1,8 @@
-#include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/input_transform.h>
 
 #define DEFAULT_WIN 0
 #define DEFAULT_MAC 1
@@ -11,16 +11,13 @@
 / {
     /* Behaviors */
     // スクロール設定
-
     msc {
         acceleration-exponent = <0>;      // 0
         time-to-max-speed-ms = <200>;     // 300
         delay-ms = <5>;                   // 10
     };
-
     behaviors {
         // エンコーダー：キー
-
         rot_kp: sensor_rotate_kp {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
@@ -28,35 +25,28 @@
         };
 
         // エンコーダー：マウススクロール 
-
         rot_msc: sensor_rotate_msc {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            tap-ms = <20>;
-            bindings = <&msc>, <&msc>;
+             compatible = "zmk,behavior-sensor-rotate-var";
+             #sensor-binding-cells = <2>;
+             tap-ms = <20>;
+             bindings = <&msc>, <&msc>;
         };
 
         // エンコーダー：マウススクロール(MOVE_Y)
-
         scroll_move_y: sensor_rotate_msc_for_move_y {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc MOVE_Y(20)>, <&msc MOVE_Y(-20)>;
-
             // tap-ms下限メモ Yの値で可変: Y(15) <81>, Y(20) <65>, Y(25) <49>
-
             tap-ms = <65>;
         };
 
         // エンコーダー：マウススクロール(MOVE_X)
-
         scroll_move_x: sensor_rotate_msc_for_move_x {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc MOVE_X(20)>, <&msc MOVE_X(-20)>;
-
             // tap-ms下限メモ Xの値で可変: X(15) <81>, X(20) <65>, X(25) <49>
-
             tap-ms = <65>;
         };
     };
@@ -104,11 +94,8 @@
 &kp ENTER          &kp BACKSPACE      &kp DELETE   &kp LC(W)
             >;
 
-            sensor-bindings =
-                <&rot_kp LG(Z) LS(LG(Z))>,
-                <&scroll_move_y>,
-                <&rot_kp LG(PLUS) LG(MINUS)>;
-        };
+            sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&scroll_move_y>, <&rot_kp LG(PLUS) LG(MINUS)>;
+    	};
 
         // MacOS用
 
@@ -131,37 +118,32 @@
 &kp LCTRL      &kp LSHIFT         &kp LGUI  &kp SPACE
             >;
 
-            sensor-bindings =
-                <&rot_kp LG(Z) LS(LG(Z))>,
-                <&scroll_move_y>,
-                <&rot_kp LG(PLUS) LG(MINUS)>;
-        };
+            sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&scroll_move_y>, <&rot_kp LG(PLUS) LG(MINUS)>;
+    	};
+
 
         // BT設定、スクロールレイヤー
 
         SETTINGS {
             bindings = <
-&kp NUMBER_1  &kp NUMBER_2
-&kp NUMBER_3  &kp N5
-&kp NUMBER_6  &kp N0
-&kp NUMBER_9
-&kp NUMBER_7
-&kp NUMBER_4
-&kp F2
-&kp F1        &kp F3
-&kp F4        &kp F5        &kp F6
-&kp F7        &kp F11
-&kp F8        &kp F9        &kp F10
-&kp A
-&kp F12       &kp F13       &kp F14  &kp B
-&kp F15
-&kp F16       &kp F17       &kp F18  &kp F19
+&none       &none
+&none       &none
+&none       &none
+&none
+&none
+&none
+&none
+&none &none
+&none       &none  &none
+&none       &none
+&none       &none  &none
+&none
+&none       &none  &none           &none
+&none
+&bt BT_CLR  &none  &bt BT_CLR_ALL  &none
             >;
 
-            sensor-bindings =
-                <&rot_kp LEFT RIGHT>,
-                <&scroll_move_y>,
-                <&scroll_move_x>;
-        };
+            sensor-bindings = <&rot_kp LEFT RIGHT>, <&scroll_move_y>, <&scroll_move_x>;
+    	};
     };
 };
