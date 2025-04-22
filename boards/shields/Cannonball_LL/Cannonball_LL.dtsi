@@ -12,7 +12,7 @@
         kscan = <&kscan0>;
         transform = <&default_transform>;
 
-        keys  //                     w   h    x    y     rot    rx    ry
+	keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100  375  450       0     0     0>
             , <&key_physical_attrs 100 100  375  550       0     0     0>
             , <&key_physical_attrs 100 100  375  650       0     0     0>
@@ -41,8 +41,10 @@
             , <&key_physical_attrs 100 100  500  500       0     0     0>
             , <&key_physical_attrs 100 100  500  700       0     0     0>
             , <&key_physical_attrs 100 100  650  550       0     0     0>
-            , <&key_physical_attrs 100 100  650  650       0     0     0>;
+            , <&key_physical_attrs 100 100  650  650       0     0     0>；
     };
+
+
 
     default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
