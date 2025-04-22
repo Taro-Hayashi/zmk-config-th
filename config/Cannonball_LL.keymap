@@ -90,7 +90,7 @@
 
         DEFAULT_WIN {
             bindings = <
-&mkp MB2  &kp LCTRL  &kp LSHFT  &kp BSPC  &to 1  &mkp MB3  &kp LC(N0)  &kp DEL  &mkp MB1  &kp TAB  &kp LS(TAB)  &kp RET  &kp LC(C)  &kp LC(V)  &kp LS(LC(T))  &kp LS(LC(TAB))  &kp LC(W)  &kp LC(TAB)  &to DEFAULT_WIN  &kp F11  &to DEFAULT_MAC  &to DEFAULT_WIN  &kp F12  &to DEFAULT_MAC  &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &mkp MB4  &mkp MB5  &bt BT_SEL 0  &bt BT_SEL 1
+&mkp MB2  &kp LCTRL  &kp LSHFT  &kp BSPC  &to 1  &mkp MB3  &to 2  &kp DEL  &mkp MB1  &kp TAB  &kp LS(TAB)  &kp RET  &kp LC(C)  &kp LC(V)  &kp LS(LC(T))  &kp LS(LC(TAB))  &kp LC(W)  &kp LC(TAB)  &to DEFAULT_WIN  &kp F11  &to DEFAULT_MAC  &to DEFAULT_WIN  &kp F12  &to DEFAULT_MAC  &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &mkp MB4  &mkp MB5  &bt BT_SEL 0  &bt BT_SEL 1
             >;
 
             sensor-bindings =
@@ -103,7 +103,7 @@
 
         DEFAULT_MAC {
             bindings = <
-&mkp MB2  &kp LGUI  &kp LSHFT  &kp BSPC  &to 0  &mkp MB3  &kp LG(N0)  &kp DEL  &mkp MB1  &kp TAB  &kp LS(TAB)  &kp RET  &kp LG(C)  &kp LG(V)  &kp LS(LG(N))  &kp LS(LC(TAB))  &kp LG(W)  &kp LC(TAB)  &to DEFAULT_WIN  &kp F11  &to DEFAULT_MAC  &to DEFAULT_WIN  &kp F12  &to DEFAULT_MAC  &kp LG(LA(LEFT_ARROW))  &kp LG(LA(RIGHT))  &kp F3  &kp LG(LS(F4))  &bt BT_SEL 0  &bt BT_SEL 1
+&mkp MB2  &kp LGUI  &kp LSHFT  &kp BSPC  &to 0  &mkp MB3  &to 2  &kp DEL  &mkp MB1  &kp TAB  &kp LS(TAB)  &kp RET  &kp LG(C)  &kp LG(V)  &kp LS(LG(T))  &kp LS(LC(TAB))  &kp LG(W)  &kp LC(TAB)  &to DEFAULT_WIN  &kp F11  &to DEFAULT_MAC  &to DEFAULT_WIN  &kp F12  &to DEFAULT_MAC  &kp LG(LA(LEFT_ARROW))  &kp LG(LA(RIGHT))  &kp F3  &kp LG(LS(F4))  &bt BT_SEL 0  &bt BT_SEL 1
             >;
 
             sensor-bindings =
@@ -116,7 +116,7 @@
 
         SETTINGS {
             bindings = <
-&none  &none  &none  &none  &none  &mo SCROLL  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &bt BT_CLR_ALL  &bt BT_CLR
+&kp N9  &kp NUMBER_6  &kp NUMBER_3  &kp COMMA  &to 0  &kp N5  &to 1  &kp PERIOD  &kp N7  &kp NUMBER_4  &kp NUMBER_1  &kp N0  &kp ESCAPE  &kp ENTER  &kp N8  &kp EQUAL  &kp NUMBER_2  &kp BACKSPACE  &none  &none  &none  &none  &none  &none  &kp MINUS  &kp PLUS  &kp SLASH  &kp ASTERISK  &bt BT_CLR_ALL  &bt BT_CLR
             >;
 
             sensor-bindings =
