@@ -61,7 +61,7 @@
     compatible = "zmk,matrix-transform";
     rows = <2>;
     columns = <16>;
-    map = 
+    map = <
         // Cover buttons
         RC(0,11) RC(0,10)
         // Lever
@@ -80,7 +80,7 @@
         // Back buttons
         RC(1,13) RC(1,12)
     >;
-};
+    };
 
     // ピン設定
     kscan0: kscan0 {
