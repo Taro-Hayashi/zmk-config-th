@@ -62,21 +62,192 @@
         rows = <2>;
         columns = <16>;
         map = 
-            // Calculated matrix positions based on row and column
-            25 23 22  // Lever
-            16 18 17 19  // Stick
-            11 10  // Cover buttons
-            6 20 0  // Key 1st row
-            14 12  // Side upper row
-            7 4 1  // Key 2nd row
-            21  // Back Button Upper
-            8 21 2  // Key 3rd row
-            20  // Back Button Down
-            22  // Side bottom row left
-            9 5 3  // Key 4th row
-            13  // Side bottom row right
+            // Lever
+            RC(1,9) RC(1,7) RC(1,6)
+            // Stick
+            RC(1,0) RC(1,2) RC(1,1) RC(1,3)
+            // Cover button L R
+            RC(0,11) RC(0,10)
+            // Key 1row:Mouse Button
+            RC(0,6) RC(1,4) RC(0,0)
+            // Side upper row
+            RC(0,14) RC(0,12)
+            // Key 2row
+            RC(0,7) RC(0,4) RC(0,1)
+            // Back Button Upper
+            RC(1,13)
+            // Key 3row
+            RC(0,8) RC(1,5) RC(0,2)
+            // Back Button Down
+            RC(1,12)
+            // Side bottom row left
+            RC(1,14)
+            // Key 4row
+            RC(0,9) RC(0,5) RC(0,3)
+            // Side bottom row right
+            RC(0,13)
         >;
     };
 
-    // Rest of the file remains the same (kscan0, encoders, sensors, etc.)
+    // ピン設定
+    kscan0: kscan0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        wakeup-source;
+        row-gpios
+            = <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+        col-gpios
+            = <&shifter 0  GPIO_ACTIVE_HIGH>
+            , <&shifter 1  GPIO_ACTIVE_HIGH>
+            , <&shifter 2  GPIO_ACTIVE_HIGH>
+            , <&shifter 3  GPIO_ACTIVE_HIGH>
+            , <&shifter 4  GPIO_ACTIVE_HIGH>
+            , <&shifter 5  GPIO_ACTIVE_HIGH>
+            , <&shifter 6  GPIO_ACTIVE_HIGH>
+            , <&shifter 7  GPIO_ACTIVE_HIGH>
+            , <&shifter 8  GPIO_ACTIVE_HIGH>
+            , <&shifter 9  GPIO_ACTIVE_HIGH>
+            , <&shifter 10 GPIO_ACTIVE_HIGH>
+            , <&shifter 11 GPIO_ACTIVE_HIGH>
+            , <&shifter 12 GPIO_ACTIVE_HIGH>
+            , <&shifter 13 GPIO_ACTIVE_HIGH>
+            , <&shifter 14 GPIO_ACTIVE_HIGH>
+            ;
+    };
+
+    // エンコーダー設定
+    head_encoder: encoder_head {
+        compatible = "alps,ec11";
+        a-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <30>;
+        status = "disabled";
+    };
+    chest_encoder: encoder_chest {
+        compatible = "alps,ec11";
+        a-gpios = <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <24>;
+        status = "disabled";
+    };
+    leg_encoder: encoder_leg {
+        compatible = "alps,ec11";
+        a-gpios = <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <24>;
+        status = "disabled";
+    };
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&head_encoder>, <&chest_encoder>, <&leg_encoder>;
+    };
+};
+
+&sensors {
+    head_config {
+        triggers-per-rotation = <15>;
+    };
+
+    chest_config {
+        triggers-per-rotation = <12>;
+    };
+
+    leg_config {
+        triggers-per-rotation = <12>;
+    };
+};
+
+&head_encoder {
+    status = "okay";
+};
+&chest_encoder {
+    status = "okay";
+};
+&leg_encoder {
+    status = "okay";
+};
+
+// SPIピン設定
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 4)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 4)>;
+        };
+    };
+
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 4)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 4)>;
+            low-power-enable;
+        };
+    };
+};
+
+&spi0 {
+    status = "okay";
+    cs-gpios =  <&gpio0 10 GPIO_ACTIVE_LOW>, <&xiao_d 6 GPIO_ACTIVE_LOW>; // CS
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    compatible = "nordic,nrf-spim";
+
+    // 光学センサー
+    trackball: trackball@0 {
+        status = "okay";
+        compatible = "pixart,pmw3610";
+        reg = <0>;
+  	    cpi = <1200>;
+        spi-max-frequency = <400000>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        irq-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; //MOT
+    };
+
+    // シフトレジスター
+    shifter: 595@1 {
+        compatible = "zmk,gpio-595";
+        status = "okay";
+        gpio-controller;
+        spi-max-frequency = <400000>;
+        reg = <1>;
+        #gpio-cells = <2>;
+        label = "4HC595";
+        ngpios = <16>;
+    };
+};
+
+// トラックボール設定
+/ {
+  trackball_listener {
+    compatible = "zmk,input-listener";
+    device = <&trackball>;
+
+    disable {
+        // mouse disabled-esque for layer1
+        layers = <1>;
+        input-processors = 
+          &zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)
+          &zip_x_scaler 0 8192
+          &zip_y_scaler 1 8192
+          &zip_xy_to_scroll_mapper
+        >;
+    };
+
+    scroller {
+        layers = <2>;
+        input-processors = 
+          &zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)
+          &zip_x_scaler 0 16
+          &zip_y_scaler 1 16
+          &zip_xy_to_scroll_mapper
+        >;
+    };
+  };
 };
