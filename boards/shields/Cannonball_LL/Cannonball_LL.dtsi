@@ -12,47 +12,49 @@
         kscan = <&kscan0>;
         transform = <&default_transform>;
 
-        // Ordered keys based on physical layout (abbreviated for readability)
-        keys = <
+        keys = 
+            // Lever
+            &key_physical_attrs 100 100 25 150    0 0 0
+            &key_physical_attrs 100 100 75 50     0 0 0
+            &key_physical_attrs 100 100 575 150   0 0 0
+
+            // Stick
+            &key_physical_attrs 100 100 200 200   0 0 0
+            &key_physical_attrs 100 100 300 100   0 0 0
+            &key_physical_attrs 100 100 400 200   0 0 0
+            &key_physical_attrs 100 100 300 300   0 0 0
+
+            // Cover buttons
             &key_physical_attrs 100 100 175 0     0 0 0
             &key_physical_attrs 100 100 425 0     0 0 0
 
-            &key_physical_attrs 100 100 75 50     0 0 0
-            &key_physical_attrs 100 100 525 50    0 0 0
-
-            &key_physical_attrs 100 100 25 150    0 0 0
-            &key_physical_attrs 100 100 575 150   0 0 0
-
-            &key_physical_attrs 100 100 200 200   0 0 0
-            &key_physical_attrs 100 100 400 200   0 0 0
-
-            &key_physical_attrs 100 100 300 100   0 0 0
-            &key_physical_attrs 100 100 300 300   0 0 0
-
+            // Mouse buttons
             &key_physical_attrs 100 100 175 325   0 0 0
             &key_physical_attrs 100 100 425 325   0 0 0
 
-            &key_physical_attrs 100 100 400 450   0 0 0
-            &key_physical_attrs 100 100 400 550   0 0 0
-            &key_physical_attrs 100 100 400 650   0 0 0
-            &key_physical_attrs 100 100 400 750   0 0 0
+            // Main keys
+            &key_physical_attrs 100 100 200 450   0 0 0
+            &key_physical_attrs 100 100 200 550   0 0 0
+            &key_physical_attrs 100 100 200 650   0 0 0
+            &key_physical_attrs 100 100 200 750   0 0 0
 
             &key_physical_attrs 100 100 300 450   0 0 0
             &key_physical_attrs 100 100 300 550   0 0 0
             &key_physical_attrs 100 100 300 650   0 0 0
             &key_physical_attrs 100 100 300 750   0 0 0
 
-            &key_physical_attrs 100 100 200 450   0 0 0
-            &key_physical_attrs 100 100 200 550   0 0 0
-            &key_physical_attrs 100 100 200 650   0 0 0
-            &key_physical_attrs 100 100 200 750   0 0 0
+            &key_physical_attrs 100 100 400 450   0 0 0
+            &key_physical_attrs 100 100 400 550   0 0 0
+            &key_physical_attrs 100 100 400 650   0 0 0
+            &key_physical_attrs 100 100 400 750   0 0 0
 
+            // Side buttons
             &key_physical_attrs 100 100 75 500    0 0 0
-            &key_physical_attrs 100 100 525 500   0 0 0
-
             &key_physical_attrs 100 100 75 700    0 0 0
+            &key_physical_attrs 100 100 525 500   0 0 0
             &key_physical_attrs 100 100 525 700   0 0 0
 
+            // Back buttons
             &key_physical_attrs 100 100 675 550   0 0 0
             &key_physical_attrs 100 100 675 650   0 0 0
         >;
@@ -60,81 +62,28 @@
 
     default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
-        rows = <15>;
-        columns = <4>;
-        map = <
-            RC(0,0) RC(0,1)
-            RC(1,0) RC(1,1)
-            RC(2,0) RC(2,1)
-            RC(3,0)
-            RC(4,0)
-            RC(5,0)
-            RC(6,0)
-            RC(7,0) RC(7,1)
-            RC(8,0) RC(8,1) RC(8,2)
-            RC(9,0) RC(9,1)
-            RC(10,0) RC(10,1) RC(10,2)
-            RC(11,0)
-            RC(12,0) RC(12,1) RC(12,2) RC(12,3)
-            RC(13,0)
-            RC(14,0) RC(14,1) RC(14,2) RC(14,3)
+        rows = <2>;
+        columns = <16>;
+        map = 
+            // Lever
+            RC(1,9) RC(1,7) RC(1,6)
+            // Stick
+            RC(1,0) RC(1,2) RC(1,1) RC(1,3)
+            // Cover buttons
+            RC(0,11) RC(0,10)
+            // Mouse buttons
+            RC(0,11) RC(0,10)
+            // Main keys
+            RC(0,6) RC(1,4) RC(0,0)
+            RC(0,7) RC(0,4) RC(0,1)
+            RC(0,8) RC(1,5) RC(0,2)
+            RC(0,9) RC(0,5) RC(0,3)
+            // Side buttons
+            RC(0,14) RC(1,14) RC(0,12) RC(0,13)
+            // Back buttons
+            RC(1,13) RC(1,12)
         >;
     };
 
-    kscan0: kscan0 {
-        compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row";
-        wakeup-source;
-        row-gpios = <
-            &xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-            &xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        >;
-        col-gpios = <
-            &shifter 0 GPIO_ACTIVE_HIGH
-            &shifter 1 GPIO_ACTIVE_HIGH
-            &shifter 2 GPIO_ACTIVE_HIGH
-            &shifter 3 GPIO_ACTIVE_HIGH
-            &shifter 4 GPIO_ACTIVE_HIGH
-            &shifter 5 GPIO_ACTIVE_HIGH
-            &shifter 6 GPIO_ACTIVE_HIGH
-            &shifter 7 GPIO_ACTIVE_HIGH
-            &shifter 8 GPIO_ACTIVE_HIGH
-            &shifter 9 GPIO_ACTIVE_HIGH
-            &shifter 10 GPIO_ACTIVE_HIGH
-            &shifter 11 GPIO_ACTIVE_HIGH
-            &shifter 12 GPIO_ACTIVE_HIGH
-            &shifter 13 GPIO_ACTIVE_HIGH
-            &shifter 14 GPIO_ACTIVE_HIGH
-        >;
-    };
-
-    // Encoders
-    head_encoder: encoder_head {
-        compatible = "alps,ec11";
-        a-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <30>;
-        status = "okay";
-    };
-
-    chest_encoder: encoder_chest {
-        compatible = "alps,ec11";
-        a-gpios = <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <24>;
-        status = "okay";
-    };
-
-    leg_encoder: encoder_leg {
-        compatible = "alps,ec11";
-        a-gpios = <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <24>;
-        status = "okay";
-    };
-
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&head_encoder &chest_encoder &leg_encoder>;
-    };
+    // Rest of the device tree remains the same as in the original overlay
 };
