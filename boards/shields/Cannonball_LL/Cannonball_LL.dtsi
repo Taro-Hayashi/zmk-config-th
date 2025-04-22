@@ -12,52 +12,36 @@
         kscan = <&kscan0>;
         transform = <&default_transform>;
 
-        keys = 
-            // Lever
-            &key_physical_attrs 100 100 25 150    0 0 0
-            &key_physical_attrs 100 100 75 50     0 0 0
-            &key_physical_attrs 100 100 575 150   0 0 0
-
-            // Stick
-            &key_physical_attrs 100 100 200 200   0 0 0
-            &key_physical_attrs 100 100 300 100   0 0 0
-            &key_physical_attrs 100 100 400 200   0 0 0
-            &key_physical_attrs 100 100 300 300   0 0 0
-
-            // Cover buttons
-            &key_physical_attrs 100 100 175 0     0 0 0
-            &key_physical_attrs 100 100 425 0     0 0 0
-
-            // Mouse buttons
-            &key_physical_attrs 100 100 175 325   0 0 0
-            &key_physical_attrs 100 100 425 325   0 0 0
-
-            // Main keys
-            &key_physical_attrs 100 100 200 450   0 0 0
-            &key_physical_attrs 100 100 200 550   0 0 0
-            &key_physical_attrs 100 100 200 650   0 0 0
-            &key_physical_attrs 100 100 200 750   0 0 0
-
-            &key_physical_attrs 100 100 300 450   0 0 0
-            &key_physical_attrs 100 100 300 550   0 0 0
-            &key_physical_attrs 100 100 300 650   0 0 0
-            &key_physical_attrs 100 100 300 750   0 0 0
-
-            &key_physical_attrs 100 100 400 450   0 0 0
-            &key_physical_attrs 100 100 400 550   0 0 0
-            &key_physical_attrs 100 100 400 650   0 0 0
-            &key_physical_attrs 100 100 400 750   0 0 0
-
-            // Side buttons
-            &key_physical_attrs 100 100 75 500    0 0 0
-            &key_physical_attrs 100 100 75 700    0 0 0
-            &key_physical_attrs 100 100 525 500   0 0 0
-            &key_physical_attrs 100 100 525 700   0 0 0
-
-            // Back buttons
-            &key_physical_attrs 100 100 675 550   0 0 0
-            &key_physical_attrs 100 100 675 650   0 0 0
-        >;
+        keys  //                     w   h    x    y     rot    rx    ry
+            = <&key_physical_attrs 100 100  375  450       0     0     0>
+            , <&key_physical_attrs 100 100  375  550       0     0     0>
+            , <&key_physical_attrs 100 100  375  650       0     0     0>
+            , <&key_physical_attrs 100 100  375  750       0     0     0>
+            , <&key_physical_attrs 100 100  275  550       0     0     0>
+            , <&key_physical_attrs 100 100  275  650       0     0     0>
+            , <&key_physical_attrs 100 100  275  750       0     0     0>
+            , <&key_physical_attrs 100 100  175  450       0     0     0>
+            , <&key_physical_attrs 100 100  175  550       0     0     0>
+            , <&key_physical_attrs 100 100  175  650       0     0     0>
+            , <&key_physical_attrs 100 100  175  750       0     0     0>
+            , <&key_physical_attrs 100 100  150  325       0     0     0>
+            , <&key_physical_attrs 100 100  400  325       0     0     0>
+            , <&key_physical_attrs 100 100  275  100       0     0     0>
+            , <&key_physical_attrs 100 100  175  200       0     0     0>
+            , <&key_physical_attrs 100 100  275  300       0     0     0>
+            , <&key_physical_attrs 100 100  375  200       0     0     0>
+            , <&key_physical_attrs 100 100    0  150       0     0     0>
+            , <&key_physical_attrs 100 100   50   50       0     0     0>
+            , <&key_physical_attrs 100 100  150    0       0     0     0>
+            , <&key_physical_attrs 100 100  400    0       0     0     0>
+            , <&key_physical_attrs 100 100  500   50       0     0     0>
+            , <&key_physical_attrs 100 100  550  150       0     0     0>
+            , <&key_physical_attrs 100 100   50  500       0     0     0>
+            , <&key_physical_attrs 100 100   50  700       0     0     0>
+            , <&key_physical_attrs 100 100  500  500       0     0     0>
+            , <&key_physical_attrs 100 100  500  700       0     0     0>
+            , <&key_physical_attrs 100 100  650  550       0     0     0>
+            , <&key_physical_attrs 100 100  650  650       0     0     0>;
     };
 
     default_transform: keymap_transform0 {
