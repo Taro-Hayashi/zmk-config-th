@@ -74,7 +74,7 @@
                 // Back
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
-            sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&scroll_move_y>, <&rot_kp LG(PLUS) LG(MINUS)>;    	};
+            sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&scroll_move_y>, <&rot_kp LG(PLUS) LG(MINUS)>;
 
         // MacOS用
     	DEFAULT_MAC {
@@ -95,7 +95,7 @@
                 // Back
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
-            sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&scroll_move_y>, <&rot_kp LG(PLUS) LG(MINUS)>;    	};
+            sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&scroll_move_y>, <&rot_kp LG(PLUS) LG(MINUS)>;
 
         // BT設定、スクロールレイヤー
         SETTINGS {
